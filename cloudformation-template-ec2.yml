@@ -83,6 +83,20 @@ Resources:
           FromPort: 22
           ToPort: 22
           CidrIp: 0.0.0.0/0
+  DBEC2SecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: !Join ["-", [webapp-db-security-group, !Ref EnvironmentType]]
+      GroupDescription: Allow postgres inbound traffic
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 5432
+          ToPort: 5432
+          SourceSecurityGroupName:
+            Ref: WebAppSecurityGroup
+      Tags:
+        - Key: Name
+          Value: !Join ["-", [webapp-db-security-group, !Ref EnvironmentType]]
 
   WebAppEIP:
     Type: AWS::EC2::EIP
@@ -97,6 +111,8 @@ Resources:
     Type: AWS::RDS::DBInstance
     Properties:
       DBInstanceIdentifier: !Ref DBInstanceIdentifier
+      VPCSecurityGroups:
+        - !GetAtt DBEC2SecurityGroup.GroupId
       AllocatedStorage: "5"
       DBInstanceClass: db.t3.micro
       Engine: postgres
