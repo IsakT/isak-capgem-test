@@ -12,7 +12,7 @@ module.exports = {
       database: process.env.DEV_PG_DB,
       user:     process.env.DEV_PG_DB_USER,
       password: process.env.DEV_PG_DB_PW,
-      port: process.env.DEV_PG_DB_HOST
+      port: process.env.DEV_PG_DB_PORT
     },
     pool: {
       min: 2,

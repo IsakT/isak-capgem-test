@@ -34,10 +34,10 @@ If you already have Node.js installed, then run:
 
     FOOBAR=foobar
     NODE_ENV=development
-    DEV_PG_DB=isakcapgem
+    DEV_PG_DB=your_db
     DEV_PG_DB_USER=postgres
-    DEV_PG_DB_PW=globalops
-    DEV_PG_DB_HOST=5433
+    DEV_PG_DB_PW=postgres
+    DEV_PG_DB_PORT=   # this will default to 5432
 
     # AWS RDS credentials goes here
     RDS_PG_HOST=
