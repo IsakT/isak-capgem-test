@@ -51,7 +51,7 @@ If you already have Node.js installed, then run:
 
 # Run the migration files to set up the database tables
 
-`npx knex migrate:latest --knexfile db/knexfile.js`
+    $ npx knex migrate:latest --knexfile db/knexfile.js
 
 # Generate a migration file using Knex.js
 
