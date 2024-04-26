@@ -9,7 +9,7 @@ const { table } = require("../db");
  * @returns { Promise<void> }
  */
 exports.up = function(knex) {
-  return knex.schema.createTableIfNotExists("product", (product) => {
+  return knex.schema.createTable("product", (table) => {
     table.increments("id");
     table.string("name").notNullable();
     table.decimal("price").notNullable();

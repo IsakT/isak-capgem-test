@@ -1,3 +1,4 @@
+require('dotenv').config({path: '../.env'});
 // Update with your config settings.
 
 /**
@@ -8,9 +9,10 @@ module.exports = {
   development: {
     client: 'postgresql',
     connection: {
-      database: process.env.LOCAL_PG_DB,
-      user:     process.env.LOCAL_PG_DB_USER,
-      password: process.env.LOCAL_PG_DB_PW,
+      database: process.env.DEV_PG_DB,
+      user:     process.env.DEV_PG_DB_USER,
+      password: process.env.DEV_PG_DB_PW,
+      port: process.env.DEV_PG_DB_HOST
     },
     pool: {
       min: 2,
@@ -24,6 +26,7 @@ module.exports = {
   production: {
     client: 'postgresql',
     connection: {
+      host: process.env.RDS_PG_HOST,
       database: process.env.RDS_PG_DB,
       user:     process.env.RDS_PG_DB_USER,
       password: process.env.RDS_PG_DB_PW,

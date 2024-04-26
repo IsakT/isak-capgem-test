@@ -9,7 +9,7 @@ const { table } = require("../db");
  * @returns { Promise<void> }
  */
 exports.up = function(knex) {
-  return knex.schema.createTableIfNotExists("article", (article) => {
+  return knex.schema.createTable("article", (table) => {
     table.increments("id");
     table.string("art_id").notNullable();
     table.string("name").notNullable();
@@ -23,5 +23,5 @@ exports.up = function(knex) {
  * @returns { Promise<void> }
  */
 exports.down = function(knex) {
-  return knex.schema.dropTableIfExists("product");
+  return knex.schema.dropTableIfExists("article");
 };
