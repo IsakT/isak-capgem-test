@@ -49,6 +49,11 @@ If you already have Node.js installed, then run:
 
     $ DEBUG=isak-capgem-test:\* npm start
 
+# Run the app in a Docker container
+
+    $ docker build -t isakcapgem:1.0 .
+    $ docker run -d -p 3000:3000 isakcapgem:1.0
+
 # Run the migration files to set up the database tables
 
     $ npx knex migrate:latest --knexfile db/knexfile.js
